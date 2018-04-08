@@ -4,4 +4,4 @@
 __author__ = 'XThundering'
 
 DEBUG = False
-SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://root:wodemima..@localhost:3306/fisher'
+SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://root:root@localhost:3306/fisher'
