@@ -2,7 +2,7 @@
  Created by XThundering on 2018/4/4
 """
 from flask import Flask
-from app.models.book import db
+from app.models.base import db
 
 __author__ = 'XThundering'
 
