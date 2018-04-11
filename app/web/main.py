@@ -8,7 +8,7 @@ __author__ = 'XThundering'
 
 @web.route('/')
 def index():
-    pass
+    return 'hello'
 
 
 @web.route('/personal')
