@@ -12,6 +12,8 @@ class BookViewModel:
         self.image = book['image']
         self.price = book['price']
         self.isbn = book['isbn']
+        self.pubdate = book['pubdate']
+        self.binding = book['binding']
         self.summary = book['summary'] or ''
         self.pages = book['pages'] or ''
 
