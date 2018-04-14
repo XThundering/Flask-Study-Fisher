@@ -5,7 +5,7 @@ from flask import current_app, flash, redirect, url_for
 from flask_login import login_required, current_user
 
 from app.models.base import db
-from app.models.wish import Gift
+from app.models.gift import Gift
 from . import web
 
 __author__ = 'XThundering'
@@ -14,6 +14,10 @@ __author__ = 'XThundering'
 @web.route('/my/gifts')
 @login_required
 def my_gifts():
+    uid = current_user.id
+    gifts_of_mine = Gift.get_user_gifts(uid)
+    isbn_list = [gift.isbn for gift in gifts_of_mine]
+
     return 'My Gifts'
 
 
