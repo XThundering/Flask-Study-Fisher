@@ -1,11 +1,12 @@
 """
  Created by XThundering on 2018/4/9
 """
-from flask import current_app, flash, redirect, url_for
+from flask import current_app, flash, redirect, url_for, render_template
 from flask_login import login_required, current_user
 
 from app.models.base import db
 from app.models.gift import Gift
+from app.view_models.gift import MyGifts
 from . import web
 
 __author__ = 'XThundering'
@@ -17,8 +18,9 @@ def my_gifts():
     uid = current_user.id
     gifts_of_mine = Gift.get_user_gifts(uid)
     isbn_list = [gift.isbn for gift in gifts_of_mine]
-
-    return 'My Gifts'
+    wish_count_list = Gift.get_wish_counts(isbn_list)
+    view_model = MyGifts(gifts_of_mine, wish_count_list)
+    return render_template('my_gifts.html', gifts=view_model.gifts)
 
 
 @web.route('/gifts/book/<isbn>')
